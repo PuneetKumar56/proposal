@@ -84,3 +84,9 @@ if (heartsContainer) {
     setTimeout(() => heart.remove(), 6000);
   }, 250);
 }
+
+// ❤️ YES button click → next page
+
+yesBtn.addEventListener("click", () => {
+  window.location.href = "success.html";
+});
