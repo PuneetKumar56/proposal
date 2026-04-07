@@ -180,6 +180,7 @@ function share(){
   const text = "I said YES ❤️ 😍 (just for you)";
 
   window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`);
+  localStorage.removeItem("whatsappNumber");
 }
 
 
