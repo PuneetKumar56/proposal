@@ -88,5 +88,8 @@ if (heartsContainer) {
 // ❤️ YES button click → next page
 
 yesBtn.addEventListener("click", () => {
-  window.location.href = "success.html";
+  const urlParams = new URLSearchParams(window.location.search);
+  const number = urlParams.get("num");
+
+  window.location.href = `success.html?num=${number}`;
 });
