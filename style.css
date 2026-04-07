@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+.gif {
+  width: 180px;
+  margin: 20px 0;
+  border-radius: 20px;
+}
+
+.btn-group {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin: auto;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background: #00c853;
+  position: absolute;
+  left: 20px;
+}
+
+#noBtn {
+  background: #d50000;
+  position: absolute;
+  right: 20px;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* Hearts */
+.hearts span {
+  position: absolute;
+  bottom: -50px;
+  animation: float 6s linear infinite;
+}
+
+#noBtn {
+  background: #d50000;
+  color: white;
+
+  position: fixed;
+
+  /* 🔥 FIXED SIZE */
+  width: 150px;
+  height: 45px;
+
+  /* prevent resizing */
+  min-width: 120px;
+  max-width: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+    white-space: nowrap;
+  overflow: hidden;
+
+  /* ❌ remove pointer */
+  cursor: default;
+
+  /* optional: smooth movement */
+  transition: left 0.15s linear, top 0.15s linear;
+}
+/* #noBtn {
+
+} */
+
+@keyframes float {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .gif { width: 130px; }
+  h1 { font-size: 1.8rem; }
+}

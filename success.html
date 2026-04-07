@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accepted ❤️</title>
+
+<style>
+body {
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff4081,#ff80ab,#ff1744);
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+/* Main Box */
+.container {
+  z-index: 2;
+}
+
+/* Romantic Heading */
+h1 {
+  font-size:3rem;
+  animation:pop 1s infinite alternate;
+  text-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+/* Romantic Text */
+p {
+  font-size:1.3rem;
+  margin-top:10px;
+  animation:fadeIn 2s ease-in-out;
+}
+
+@keyframes pop {
+  to { transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+/* Button */
+button {
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#25D366;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* 🎈 Balloons */
+.balloon {
+  position:absolute;
+  bottom:-100px;
+  width:40px;
+  height:50px;
+  border-radius:50%;
+  animation:floatUp linear infinite;
+}
+
+.balloon::after {
+  content:"";
+  position:absolute;
+  width:2px;
+  height:40px;
+  background:white;
+  top:50px;
+  left:50%;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-110vh); }
+}
+
+/* 🎉 Confetti */
+.confetti {
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:white;
+  opacity:0.7;
+  animation:fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* 📱 Responsive */
+@media(max-width:600px){
+  h1 { font-size:2rem; }
+  p { font-size:1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2><span>❤️</span> You Accepted My Proposal <span>❤️</span></h2>
+  <p>You just made my world beautiful 💖</p>
+  <p>I promise to always make you smile 😊</p>
+
+  <button onclick="share()">Share on WhatsApp</button>
+</div>
+
+<script>
+// 🎈 Generate Balloons
+const colors = ["#ff4d6d","#ff85a2","#ffc2d1","#ff1744","#f50057"];
+
+setInterval(()=>{
+  const balloon = document.createElement("div");
+  balloon.classList.add("balloon");
+
+  balloon.style.left = Math.random()*100 + "vw";
+  balloon.style.background = colors[Math.floor(Math.random()*colors.length)];
+  balloon.style.animationDuration = (5 + Math.random()*5) + "s";
+
+  document.body.appendChild(balloon);
+
+  setTimeout(()=> balloon.remove(), 10000);
+}, 500);
+
+// 🎉 Confetti
+setInterval(()=>{
+  const confetti = document.createElement("div");
+  confetti.classList.add("confetti");
+
+  confetti.style.left = Math.random()*100 + "vw";
+  confetti.style.background = colors[Math.floor(Math.random()*colors.length)];
+  confetti.style.animationDuration = (3 + Math.random()*3) + "s";
+
+  document.body.appendChild(confetti);
+
+  setTimeout(()=> confetti.remove(), 6000);
+}, 100);
+
+// 📤 WhatsApp Share
+function share(){
+  const text = "I just accepted ❤️ 😍";
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`);
+}
+</script>
+
+</body>
+</html>
