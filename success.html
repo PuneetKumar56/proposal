@@ -159,7 +159,8 @@ function share(){
   const number = urlParams.get("num");
 
   if (!number) {
-    alert("No number found!");
+    alert("Invalid whatsApp number! Please ask sender again.");
+  }
     return;
   }
 
