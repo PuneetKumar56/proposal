@@ -158,7 +158,7 @@ function share(){
   const urlParams = new URLSearchParams(window.location.search);
   const number = urlParams.get("num");
 
-  if (!number) {
+  if (!number || !userNumber.length ===10) {
     alert("Invalid whatsApp number! Please ask sender again.");
     return;
   }
