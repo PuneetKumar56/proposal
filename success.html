@@ -154,35 +154,20 @@ setInterval(()=>{
   setTimeout(()=> confetti.remove(), 6000);
 }, 100);
 
-
-// 🔥 Get number from URL
-const urlParams = new URLSearchParams(window.location.search);
-let userNumber = urlParams.get("num");
-
-// Optional fallback (agar URL me na ho)
-if (!userNumber) {
-  userNumber = "";
-}
-
-if (userNumber && userNumber.length === 10) {
-  userNumber = "91" + userNumber;
-}
-
-// Save in localStorage (so next page use kare)
-if (userNumber) {
-  localStorage.setItem("whatsappNumber", userNumber);
-}
-
-
 function share(){
-  const number = localStorage.getItem("whatsappNumber");
-    
-  const text = "I said YES ❤️ 😍 (just for you)";
+  const urlParams = new URLSearchParams(window.location.search);
+  const number = urlParams.get("num");
 
-  window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`);
-  localStorage.removeItem("whatsappNumber");
-}
+  if (!number) {
+    alert("No number found!");
+    return;
+  }
 
+  const text = "I said YES ❤️ 😍 (just for you)"
+
+  window.open(`https://wa.me/91${number}?text=${encodeURIComponent(text)}`);
+  }
+  
 
 </script>
 
