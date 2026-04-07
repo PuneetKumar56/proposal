@@ -67,37 +67,6 @@ function moveButton() {
   }, 300);
 }
 
-// 🔥 Get number from URL
-const urlParams = new URLSearchParams(window.location.search);
-let userNumber = urlParams.get("num");
-
-// Optional fallback (agar URL me na ho)
-if (!userNumber) {
-  userNumber = "";
-}
-
-if (userNumber && userNumber.length === 10) {
-  userNumber = "91" + userNumber;
-}
-
-// Save in localStorage (so next page use kare)
-if (userNumber) {
-  localStorage.setItem("whatsappNumber", userNumber);
-}
-
-// ❤️ YES button click → next page
-yesBtn.addEventListener("click", () => {
-  window.location.href = "success.html";
-});
-
-function share(){
-  const number = localStorage.getItem("whatsappNumber");
-
-  const text = "I just accepted ❤️ 😍";
-
-  window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`);
-}
-
 // 💖 Floating hearts animation
 const heartsContainer = document.querySelector(".hearts");
 
